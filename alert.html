@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hitung Mundur Modal</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        button {
+            background-color: #4CAF50; 
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 5px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .modal-content {
+            background-color:#ff0505;
+            padding: 10px;
+            border: 1px solid #ffffff;
+            width: 50%;
+            margin: 5x;
+            color: white;
+            border-radius: 5px;
+        }
+    </style>
+
+</head>
+<body>
+
+<button onclick="showCountdown()">Munculkan Alert</button>
+
+<div id="myModal" class="modal">
+    <div class="modal-content">
+        <p id="countdownText"></p>
+    </div>
+</div>
+
+<script>
+    function showCountdown() {
+        const modal = document.getElementById("myModal");
+        const countdownText = document.getElementById("countdownText");
+        let count = 5;
+
+        modal.style.display = "block";
+        countdownText.innerText =`Danger! Alert akan tertutup dalam ${count}`;
+
+        const countdownInterval = setInterval(() => {
+            count--;
+            if (count > 0) {
+                countdownText.innerText = count;
+            } else {
+                clearInterval(countdownInterval);
+                modal.style.display = "none";
+            }
+        }, 1000);
+    }
+
+</script>
+</body>
+</html>

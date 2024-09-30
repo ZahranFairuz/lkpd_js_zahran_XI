@@ -1,0 +1,14 @@
+table, th , td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+#inp {
+    width: 70px;
+    padding: 14px;
+}
+
+#list6 {
+    width: 70px;
+    padding: 7px;
+}

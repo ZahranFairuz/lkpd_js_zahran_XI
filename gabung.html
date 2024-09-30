@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Opacity Changer</title>
+    <style>
+        .image-container {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 20px;
+        }
+        .image-container img {
+            max-width: 200px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Mengganti opacity</h1>
+
+    
+    <div class="image-container">
+        <img src="img/Kepulauan Seribu.avif" alt="Image 1" id="image1">
+        <img src="img/Pulau Bintan.avif" alt="Image 2" id="image2">
+        <img src="img/Raja ampat.avif" alt="Image 3" id="image3">
+    </div>
+    
+    <label for="imageSelect">Ganti Foto:</label>
+    <select id="imageSelect">
+        <option value="img/Kepulauan Seribu.avif">Foto 1</option>
+        <option value="img/Pulau Bintan.avif">Foto 2</option>
+        <option value="img/Raja ampat.avif">Foto 3</option>
+    </select>
+    
+    <label for="opacitySelect">Ganti opacity:</label>
+    <select id="opacitySelect">
+        <option value="1">1 (Buram)</option>
+        <option value="0.5">0.5 (Semi transparent)</option>
+        <option value="0.2">0.2 (Sebagian transparent)</option>
+    </select>
+    
+    <button onclick="updateImage()">Tambahkan Perubahan</button>
+    
+    <h2>Hasil</h2>
+    <div id="resultContainer">
+        <img id="resultImage" src="img/Kepulauan Seribu.avif" style="opacity: 1;">
+    </div>
+    
+    <script>
+        function updateImage() {
+            const imageSelect = document.getElementById('imageSelect');
+            const opacitySelect = document.getElementById('opacitySelect');
+            const resultImage = document.getElementById('resultImage');
+            
+            const selectedImage = imageSelect.value;
+            const selectedOpacity = opacitySelect.value;
+            
+            resultImage.src = selectedImage;
+            resultImage.style.opacity = selectedOpacity;
+
+            setTimeout(() => {
+                resultImage.style.opacity = 1;
+            }, 5000);
+        }
+    </script>
+</body>
+</html>
